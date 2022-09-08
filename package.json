@@ -1,0 +1,12 @@
+{
+  "name": "aigen-face-verification-websocket",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/b6db07d1a5/aigen-face-verification-websocket.git",
+  "author": "ananass <sitthichai.wa@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "websocket": "^1.0.34",
+    "ws": "^8.8.1"
+  }
+}
