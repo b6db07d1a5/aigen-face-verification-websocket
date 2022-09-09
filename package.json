@@ -1,12 +1,39 @@
 {
-  "name": "aigen-face-verification-websocket",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/b6db07d1a5/aigen-face-verification-websocket.git",
-  "author": "ananass <sitthichai.wa@gmail.com>",
-  "license": "MIT",
+  "name": "create-react-app-example",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "websocket": "^1.0.34",
-    "ws": "^8.8.1"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "socket.io": "4",
+    "socket.io-client": "4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start-server": "node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
