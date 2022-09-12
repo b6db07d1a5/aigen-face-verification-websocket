@@ -24,7 +24,7 @@ io.on("connection", (socket) => {
 });
 
 app.post("/post_data", (req, res) => {
-  io.emit("message", JSON.stringify(req.body, null, 4));
+  io.emit("message", req.body);
   res.send(200);
 });
 

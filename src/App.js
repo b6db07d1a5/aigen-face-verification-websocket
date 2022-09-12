@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import logo from "./logo.svg";
 import "./App.css";
 import io from "socket.io-client";
+import { get } from "lodash";
 
 const socket = io("localhost:3001");
 
@@ -16,7 +18,6 @@ function App() {
       setIsConnected(false);
     });
     socket.on("message", (data) => {
-      console.log(data);
       setLastMessage(data);
     });
     return () => {
@@ -30,25 +31,36 @@ function App() {
   //   socket.emit('hello!');
   // }
 
+  console.log(lastMessage);
+
+  const displayData = JSON.stringify(get(lastMessage, "data", ""), null, 4);
   return (
     <div className="App">
       <header className="App-header">
         <p>API Connected: {"" + isConnected}</p>
         <div style={{ textAlign: "left" }}>
           <pre>
-            <code>{lastMessage.data || "-"}</code>
+            <code>{displayData || "-"}</code>
           </pre>
         </div>
         <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
           <img
             alt="image1"
             width="300"
-            src={`data:image/png;base64,${lastMessage.image1}`}
+            src={
+              get(lastMessage, "image1", "")
+                ? `data:image/png;base64,${lastMessage.image1}`
+                : logo
+            }
           />
           <img
             alt="image1"
             width="300"
-            src={`data:image/png;base64,${lastMessage.image2}`}
+            src={
+              get(lastMessage, "image2", "")
+                ? `data:image/png;base64,${lastMessage.image2}`
+                : logo
+            }
           />
         </div>
         {/* <button onClick={ sendMessage }>Say hello!</button> */}
