@@ -34,6 +34,7 @@ function App() {
   console.log(lastMessage);
 
   const displayData = JSON.stringify(get(lastMessage, "data", ""), null, 4);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -43,26 +44,31 @@ function App() {
             <code>{displayData || "-"}</code>
           </pre>
         </div>
-        <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
-          <img
-            alt="image1"
-            width="300"
-            src={
-              get(lastMessage, "image1", "")
-                ? `data:image/png;base64,${lastMessage.image1}`
-                : logo
-            }
-          />
-          <img
-            alt="image1"
-            width="300"
-            src={
-              get(lastMessage, "image2", "")
-                ? `data:image/png;base64,${lastMessage.image2}`
-                : logo
-            }
-          />
-        </div>
+        <>
+          {get(lastMessage, "image1", "") && (
+            <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
+              <img
+                alt="image1"
+                width="300"
+                src={
+                  get(lastMessage, "image1", "")
+                    ? `data:image/png;base64,${lastMessage.image1}`
+                    : logo
+                }
+              />
+              <img
+                alt="image1"
+                width="300"
+                src={
+                  get(lastMessage, "image2", "")
+                    ? `data:image/png;base64,${lastMessage.image2}`
+                    : logo
+                }
+              />
+            </div>
+          )}
+        </>
+
         {/* <button onClick={ sendMessage }>Say hello!</button> */}
       </header>
     </div>
