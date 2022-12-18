@@ -4,7 +4,7 @@ import "./App.css";
 import io from "socket.io-client";
 import { get } from "lodash";
 
-const socket = io("localhost:3001");
+const socket = io("13.212.2.2:3001");
 
 function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -33,7 +33,7 @@ function App() {
 
   console.log(lastMessage);
 
-  const displayData = JSON.stringify(get(lastMessage, "data", ""), null, 4);
+  const displayData = JSON.stringify(lastMessage || "", null, 4);
 
   return (
     <div className="App">
